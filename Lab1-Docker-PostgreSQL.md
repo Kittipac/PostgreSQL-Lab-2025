@@ -1,4 +1,4 @@
-# Lab 01: PostgreSQL Docker Setup and Basic Operations
+<img width="284" height="120" alt="image" src="https://github.com/user-attachments/assets/630f1e57-5931-4299-8a5a-b2acef0495c9" /><img width="1005" height="389" alt="image" src="https://github.com/user-attachments/assets/2d0a7c80-d9e5-4a44-91d1-8fb86dfa3795" /># Lab 01: PostgreSQL Docker Setup and Basic Operations
 
 ## วัตถุประสงค์
 1. ติดตั้งและใช้งาน PostgreSQL ผ่าน Docker
@@ -104,14 +104,15 @@ docker inspect postgres
 
 **บันทึกผลการทดลอง - Step 1:**
 ```
-ใส่ Screenshot ของผลการรัน docker images ที่นี่
+<img width="575" height="206" alt="image" src="https://github.com/user-attachments/assets/1f591fc9-dc68-4924-a08f-0d2efef2c68c" />
+
 ```
 
 ### Step 2: Create Docker Volume for Data Persistence
 
 ```bash
-# สร้าง Named Volume สำหรับเก็บข้อมูล
-docker volume create postgres-data
+  # สร้าง Named Volume สำหรับเก็บข้อมูล
+  docker volume create postgres-data
 
 # ตรวจสอบ Volume ที่สร้าง
 docker volume ls
@@ -120,14 +121,15 @@ docker volume ls
 docker volume inspect postgres-data
 
 # สร้าง Volume สำหรับ configuration files
-docker volume create postgres-config
+  docker volume create postgres-config
 ```
 
 **คำอธิบาย**: Docker Volume จะทำให้ข้อมูลคงอยู่แม้ Container จะถูกลบ
 
 **บันทึกผลการทดลอง - Step 2:**
 ```
-ใส่ Screenshot ของผลการรัน docker volume ls และ docker volume inspect postgres-data ที่นี่
+<img width="370" height="68" alt="image" src="https://github.com/user-attachments/assets/a17cefe4-bea9-4635-ac4e-5df0c3a50687" />
+<img width="630" height="273" alt="image" src="https://github.com/user-attachments/assets/d63f5855-e444-43ec-8214-bddc5d58234e" />
 ```
 
 ### Step 3: Create PostgreSQL Container with Volume
@@ -161,7 +163,7 @@ docker run --name postgres-lab \
 
 **บันทึกผลการทดลอง - Step 3:**
 ```
-ใส่ Screenshot ของผลการรัน docker run ที่นี่
+<img width="513" height="170" alt="image" src="https://github.com/user-attachments/assets/76b233a4-900b-4301-9236-d0f513d2239e" />
 ```
 
 ### Step 4: Verify Container Status and Resource Usage
@@ -186,6 +188,12 @@ docker volume inspect postgres-data
 1. ผลการรัน docker ps
 2. ส่วนหนึ่งของ docker logs postgres-lab
 3. ผลการรัน docker stats
+<img width="1000" height="108" alt="image" src="https://github.com/user-attachments/assets/1581c21d-2d02-49a3-9b6c-b45f6938726a" />
+<img width="784" height="343" alt="image" src="https://github.com/user-attachments/assets/e00e8669-dd59-4479-a3fe-f2cbf2141312" />
+<img width="1006" height="395" alt="image" src="https://github.com/user-attachments/assets/401b1e2f-228d-4d0d-b98c-79e853be820b" />
+<img width="1005" height="389" alt="image" src="https://github.com/user-attachments/assets/bb3b7dbb-868e-4dd2-b409-6d597da5e5d7" />
+<img width="1037" height="360" alt="image" src="https://github.com/user-attachments/assets/fca81b3f-c159-4f2d-8891-a49f7a6172c0" />
+<img width="1002" height="112" alt="image" src="https://github.com/user-attachments/assets/c27b299f-8a19-42f7-a18e-703411053c60" />
 ```
 
 ### Step 5: Connect to PostgreSQL และตรวจสอบ Configuration
@@ -213,7 +221,7 @@ SHOW effective_cache_size;
 -- ตรวจสอบการตั้งค่าทั้งหมด
 SELECT name, setting, unit, short_desc 
 FROM pg_settings 
-WHERE name IN ('shared_buffers', 'work_mem', 'maintenance_work_mem', 'effective_cache_size');
+WHERE name IN ('shared_buffers', 'work_mem', 'maintenance_work_mem', 'effective_cache_size');  
 
 -- ตรวจสอบข้อมูลระบบ
 \conninfo
@@ -231,6 +239,13 @@ WHERE name IN ('shared_buffers', 'work_mem', 'maintenance_work_mem', 'effective_
 1. ผลการรัน SELECT version();
 2. ผลการรัน SHOW shared_buffers; SHOW work_mem; SHOW maintenance_work_mem;SHOW effective_cache_size;
 3. ผลการรัน \l และ \du
+<img width="994" height="240" alt="image" src="https://github.com/user-attachments/assets/abe26eff-b099-435b-b431-7c644360c4b1" />
+<img width="314" height="139" alt="image" src="https://github.com/user-attachments/assets/ce7f21d7-2c88-48d9-8f50-b57bdc79218c" />
+<img width="284" height="120" alt="image" src="https://github.com/user-attachments/assets/b8b282ad-3f6a-4025-9dfa-f97cf0303353" />
+<img width="358" height="124" alt="image" src="https://github.com/user-attachments/assets/dd949ee6-fa68-46bd-b8eb-255ce6b3a384" />
+<img width="356" height="123" alt="image" src="https://github.com/user-attachments/assets/d12a0c97-5813-482d-8059-e8cb82cdeb9f" />
+<img width="1004" height="259" alt="image" src="https://github.com/user-attachments/assets/e8f2d795-8b62-4a84-aafa-78b4d624da80" />
+<img width="663" height="170" alt="image" src="https://github.com/user-attachments/assets/3bea3f29-c4b6-47c6-b3ec-2681ca9c8760" />
 ```
 
 ### Step 6: Database Management Operations
@@ -242,7 +257,7 @@ CREATE DATABASE lab_db
          ENCODING = 'UTF8'
          TABLESPACE = pg_default
          CONNECTION LIMIT = -1
-         TEMPLATE template1;
+             TEMPLATE template1;
 
 -- ตรวจสอบฐานข้อมูลที่สร้าง
 \l
@@ -262,8 +277,8 @@ SELECT
 FROM pg_database 
 WHERE datname = 'lab_db';
 
--- กลับไปยัง postgres database
-\c postgres
+  -- กลับไปยัง postgres database
+  \c postgres
 
 -- ลบฐานข้อมูล (แสดงตัวอย่าง - ไม่ต้องรัน)
 -- DROP DATABASE lab_db;
@@ -272,9 +287,9 @@ WHERE datname = 'lab_db';
 **บันทึกผลการทดลอง - Step 6:**
 ```
 ใส่ Screenshot ของ:
-1. ผลการสร้าง lab_db
-2. ผลการรัน \l+ แสดงฐานข้อมูลทั้งหมด
-3. ผลการ query ข้อมูลฐานข้อมูล
+<img width="996" height="264" alt="image" src="https://github.com/user-attachments/assets/16b51d42-93f4-459f-bfe4-e8cdc308b680" />
+v<img width="956" height="252" alt="image" src="https://github.com/user-attachments/assets/d66d2198-8c9a-4f9d-a5ac-8e3637a4fbc0" />
+<img width="315" height="161" alt="image" src="https://github.com/user-attachments/assets/6d7438cb-eed6-49d4-9be8-cdaf4b100769" />
 ```
 
 ### Step 7: User และ Role Management
@@ -314,25 +329,23 @@ CREATE USER db_admin WITH
 \du+
 
 -- ดู Role membership
-SELECT 
-    r.rolname,
-    r.rolsuper,
-    r.rolinherit,
-    r.rolcreaterole,
-    r.rolcreatedb,
-    r.rolcanlogin,
-    r.rolreplication,
-    r.rolconnlimit
-FROM pg_roles r
-WHERE r.rolname NOT LIKE 'pg_%';
+  SELECT 
+      r.rolname,
+      r.rolsuper,
+      r.rolinherit,
+      r.rolcreaterole,
+      r.rolcreatedb,
+      r.rolcanlogin,
+      r.rolreplication,
+      r.rolconnlimit
+  FROM pg_roles r
+  WHERE r.rolname NOT LIKE 'pg_%';
 ```
 
 **บันทึกผลการทดลอง - Step 7:**
 ```
-ใส่ Screenshot ของ:
-1. ผลการสร้าง users ทั้งหมด
-2. ผลการรัน \du+
-3. ผลการ query pg_roles
+<img width="803" height="245" alt="image" src="https://github.com/user-attachments/assets/0af08979-3c0e-4ecc-8fc8-8442c1c6c9c1" />
+<img width="1044" height="355" alt="image" src="https://github.com/user-attachments/assets/53dd82e5-da62-4353-b92a-77d9ce7bacad" />
 ```
 
 ### Step 8: การจัดการสิทธิ์ User
@@ -395,12 +408,14 @@ GRANT SELECT ON postgres_test_table TO lab_user;
 1. ผลการ ALTER USER commands
 2. ผลการรัน \dp test_permissions
 3. ผลการ GRANT commands
+<img width="482" height="127" alt="image" src="https://github.com/user-attachments/assets/bb0ebd75-8d3a-4ff5-a2b7-42616d41880e" />
+<img width="953" height="178" alt="image" src="https://github.com/user-attachments/assets/b147ac6e-3dd9-4249-a5f6-dcf12ea7a6fa" />
+<img width="581" height="52" alt="image" src="https://github.com/user-attachments/assets/30ca8ab6-b728-40a9-8d84-8a6fb844bb8f" />
 ```
 **คำถาม
  ```
 Access Privileges   postgres=arwdDxtm/postgres มีความหมายอย่างไร
-
-
+ตอบ บรรทัด postgres=arwdDxtm/postgres หมายความว่า ผู้ใช้ชื่อ postgres ได้รับสิทธิ์ทั้งหมดในการเข้าถึงฐานข้อมูล (เช่น SELECT, INSERT, UPDATE ฯลฯ) โดยสิทธิ์เหล่านี้ถูกมอบให้โดยผู้ใช้ postgres เช่นกัน.
  ```
 ### Step 9: Schema Management และ Namespace
 
@@ -461,10 +476,10 @@ CREATE TABLE inventory.products (
 \dt inventory.*
 
 -- ใส่ข้อมูลทดสอบ
-INSERT INTO sales.customers (name, email, phone) VALUES
-    ('John Doe', 'john@example.com', '123-456-7890'),
-    ('Jane Smith', 'jane@example.com', '098-765-4321'),
-    ('Bob Johnson', 'bob@example.com', '555-123-4567');
+  INSERT INTO sales.customers (name, email, phone) VALUES
+      ('John Doe', 'john@example.com', '123-456-7890'),
+      ('Jane Smith', 'jane@example.com', '098-765-4321'),
+      ('Bob Johnson', 'bob@example.com', '555-123-4567');
 
 -- เพิ่มข้อมูลในตาราง orders เพื่อให้สามารถทดสอบ JOIN ได้
 INSERT INTO sales.orders (customer_id, order_date, total_amount) VALUES
@@ -502,11 +517,10 @@ INSERT INTO hr.employee_orders (employee_id, customer_id, order_date, commission
 
 **บันทึกผลการทดลอง - Step 9:**
 ```
-ใส่ Screenshot ของ:
-1. ผลการสร้าง schemas (\dn+)
-2. ผลการสร้างตารางในแต่ละ schema
-3. ผลการใส่ข้อมูลและ query ข้อมูล
-4. ข้อมูลในตาราง employee_orders ที่จะใช้สำหรับ JOIN ข้าม schema
+<img width="938" height="302" alt="image" src="https://github.com/user-attachments/assets/0bcaddab-08bc-4f32-90a1-7ac2250da777" />
+<img width="435" height="163" alt="image" src="https://github.com/user-attachments/assets/dc2577a8-5a20-4428-b5f5-285fcf396ec6" />
+<img width="407" height="329" alt="image" src="https://github.com/user-attachments/assets/3c3fd0f5-a240-47fd-b06b-66ac688612ec" />
+<img width="1018" height="389" alt="image" src="https://github.com/user-attachments/assets/01ad5148-5a27-45fa-a9f7-dabcbcd79219" />
 ```
 
 ### Step 10: ทดสอบการเข้าถึง Schema และ Search Path
