@@ -103,10 +103,7 @@ docker inspect postgres
 
 
 **บันทึกผลการทดลอง - Step 1:**
-```
 <img width="575" height="206" alt="image" src="https://github.com/user-attachments/assets/1f591fc9-dc68-4924-a08f-0d2efef2c68c" />
-
-```
 
 ### Step 2: Create Docker Volume for Data Persistence
 
